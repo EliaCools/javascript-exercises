@@ -29,6 +29,6 @@
             return total + num;
         }
         document.getElementById('sum').innerHTML=a;
-        document.getElementById('average').innerHTML= a / numbers.length;
+        document.getElementById('average').innerHTML= a/numbers.length;
     })
 })();

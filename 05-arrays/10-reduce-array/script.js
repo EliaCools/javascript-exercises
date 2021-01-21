@@ -91,11 +91,24 @@
 
    document.getElementById('run').addEventListener('click',function(){
 
-      people.forEach(age);
-      function age(item){
-         return item.age
+       var agearray=[]
 
-      }
+
+       for (let i = 0; i < people.length; i++) {
+           agearray.push(people[i].age)
+
+       }
+
+        var a = agearray.reduce(totalage)
+
+       function totalage(total,num){
+          return total + num
+       }
+
+
+        console.log(a);
+
+
 
 
 

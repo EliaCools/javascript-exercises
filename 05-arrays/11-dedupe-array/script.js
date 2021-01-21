@@ -11,6 +11,9 @@
 
 (function() {
 
+    var removedublicate = [];
+
+
     var fruits = [
         "cerise",
         "durian",
@@ -28,6 +31,23 @@
         "cerise",
     ];
 
-    // your code here
+    document.getElementById('run').addEventListener("click",function(){
+        fruits.sort()
+
+        for (let i = 0; i <fruits.length; i++) {
+            if( fruits[i] !== fruits[i+1]){
+                removedublicate.push(fruits[i])
+            }
+        }
+
+        console.log(removedublicate)
+
+
+
+
+
+
+
+    })
 
 })();
