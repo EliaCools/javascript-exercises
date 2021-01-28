@@ -10,96 +10,92 @@
 // You will have time to focus on it later.
 
 (function() {
+   var buttons = document.querySelectorAll("button");
 
+    var valuebutton1 = parseInt(document.getElementById("part-one").value)
+    var datamaxbutton1 = document.getElementById("part-one").getAttribute("data-max");
 
-/*
-function timer() {
-    for (let i = 0; i < 10; i++) {
-        var a=1
-        var b=2
-        var c =3
+    var valuebutton2 = parseInt(document.getElementById("part-two").value)
+    var valuebutton3 = parseInt(document.getElementById("part-three").value)
+    var valuebutton4 = parseInt(document.getElementById("part-four").value)
 
-        setInterval(timer,300)
-        if(i===2){
-            return a.toString();
+    function counter1(){
+        if(valuebutton1>=datamaxbutton1){
+            valuebutton1 = 460;
+        }else {
+            let numberincr = valuebutton1 += 1
+            document.getElementById('part-one').value=numberincr.toString();
+        }}
+    var interval1 = setInterval(counter1,80)
 
-        }else if(i===3){
-            return b.toString();
-
-        }else if(i===4){
-            return c.toString();
-
+    function counter2(){
+        if(valuebutton2>=99){
+            valuebutton2=0
+        }else {
+            let numberincr = valuebutton2 += 1
+            document.getElementById('part-two').value=numberincr.toString().padStart(2,"0");
         }
     }
+    var interval2 = setInterval(counter2,70)
 
-}
-    document.getElementById('part-one').setAttribute("value",timer())
-
-*/
-
-
-
-
-    var buttons = document.querySelectorAll("button");
-
-
-
-
-    function randomint(min,max){
-        min =Math.ceil(460)
-        max=Math.floor(499)
-        return Math.floor(Math.random()*(max-min)+min)
+    function counter3(){
+        if(valuebutton3>=99){
+            valuebutton3=0
+        }else {
+            let numberincr = valuebutton3 += 1
+            document.getElementById('part-three').value=numberincr.toString().padStart(2,"0");
+        }
     }
-    function randomint2(min,max){
-        min =Math.ceil(0)
-        max=Math.floor(99)
-        return Math.floor(Math.random()*(max-min)+min)
+    var interval3 = setInterval(counter3,50)
+
+        function counter4(){
+        if(valuebutton4>=99){
+            valuebutton4=0
+        }else {
+            let numberincr = valuebutton4 += 1
+            document.getElementById('part-four').value=numberincr.toString().padStart(2,"0");
+        }
     }
-
-
-
+    var interval4 = setInterval(counter4,15)
 
 
 
     for (let i = 0; i <buttons.length ; i++) {
 
-        buttons[i].addEventListener("click",function(){
+        buttons[i].addEventListener("click", function () {
 
-            if (buttons[i]===document.getElementById("fix-part-one")){
-                document.getElementById('part-one').value=randomint();
+            if (buttons[i] === document.getElementById("fix-part-one")) {
+                let newvalue = document.getElementById('part-one').value
+                document.getElementById('part-one').setAttribute("value", newvalue)
+                document.getElementById("fix-part-one").setAttribute("disabled", "disabled")
+                clearInterval(interval1)
+            } else if (buttons[i] === document.getElementById("fix-part-two")) {
+                let newvalue = document.getElementById('part-two').value
+                document.getElementById('part-two').setAttribute("value", newvalue);
+                document.getElementById("fix-part-two").setAttribute("disabled", "disabled")
+                clearInterval(interval2)
 
-            }else  if  (buttons[i]===document.getElementById("fix-part-two")){
-                document.getElementById('part-two').value=randomint2();
+            } else if (buttons[i] === document.getElementById("fix-part-three")) {
+                let newvalue = document.getElementById('part-three').value
+                document.getElementById('part-three').setAttribute("value", newvalue);
+                document.getElementById("fix-part-three").setAttribute("disabled", "disabled")
+                clearInterval(interval3)
 
-
-
-            }else if (buttons[i]===document.getElementById("fix-part-three")){
-                document.getElementById('part-three').value=randomint2();
-
-
-
-            }else if (buttons[i]===document.getElementById("fix-part-four")){
-                document.getElementById('part-four').value=randomint2();
-
+            } else if (buttons[i] === document.getElementById("fix-part-four")) {
+                let newvalue = document.getElementById('part-four').value;
+                document.getElementById('part-four').setAttribute("value", newvalue)
+                document.getElementById("fix-part-four").setAttribute("disabled", "disabled")
+                clearInterval(interval4)
             }
-            var num1 =  document.getElementById('part-one').value
-            var num2 =  document.getElementById('part-two').value
-            var num3 =  document.getElementById('part-three').value
-            var num4 =  document.getElementById('part-four').value
+
+            number1 = document.getElementById("part-one").getAttribute("value");
+            number2 = document.getElementById("part-two").getAttribute("value")
+            number3 = document.getElementById("part-three").getAttribute("value")
+            number4 = document.getElementById("part-four").getAttribute("value")
 
 
-
-            document.getElementById('target').innerText=num1.padStart(4,'+')+num2.padStart(2,'0')+num3.padStart(2,'0')+num4.padStart(2,'0');
-
-
-
+            document.getElementById('target').innerText = number1.padStart(4, "+") + number2 + number3 + number4;
         })
-
-
     }
-
-
-
-
 
 })();
